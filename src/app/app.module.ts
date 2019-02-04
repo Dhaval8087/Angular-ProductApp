@@ -12,20 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-
+import {StoreModule} from '@ngrx/store';
+import { AppRoutingModule } from './app-routing.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavComponent],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-
-    ]),
     AdminModule,
     ProductModule,
     BrowserAnimationsModule,
@@ -34,7 +31,9 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,12 +10,13 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   getProducts(): Observable<any> {
     const res = this.http.get(this.hostUrl);
-    return this.http.get(this.hostUrl).pipe(
+    /*return this.http.get(this.hostUrl).pipe(
       tap(data => {
        console.log('%c' + JSON.stringify(data['products']), 'color:green');
       }),
       catchError(this.handleError)
-    );
+    );*/
+    return this.http.get(this.hostUrl);
   }
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);

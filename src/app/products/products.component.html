@@ -2,7 +2,7 @@
   <div class="card-header">
     {{pageTitle}}
   </div>
-  <div *ngIf='errorMessage.length > 0' class="error">
+  <div *ngIf='errorMessage$ | async as errorMessage' class="error">
     {{errorMessage}}
   </div>
   <div class="card-body">
